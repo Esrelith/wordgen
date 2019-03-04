@@ -1,1 +1,2 @@
 # wordgen
+not particularly functional
