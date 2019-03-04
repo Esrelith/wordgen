@@ -86,10 +86,10 @@ class text_break(object):
         words = self.__word_break()
 
         for word in words:
-            if len(word) in self.word_length.keys():
+            if len(word) in self.word_length.keys() and len(word) > 0:
                 self.word_length[len(word)] += 1
 
-            else:
+            elif len(word) > 0:
                 self.word_length[len(word)] = 1
 
     def run(self):

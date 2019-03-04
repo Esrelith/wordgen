@@ -1,7 +1,7 @@
 from text_break import text_break
 import random
 
-letters = text_break("1.txt", "qwertyuiopasdfghjklzxcvbnm ")
+letters = text_break("shakespeare.txt", "qwertyuiopasdfghjklzxcvbnm ")
 letters.run()
 l_freq = letters.get_letter_freq()
 print("analysis done")
