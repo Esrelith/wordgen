@@ -1,2 +1,2 @@
 # wordgen
-not particularly functional
+somewhat random word generator using probabilites generated from an input file

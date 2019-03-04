@@ -36,4 +36,4 @@ def gen(word = ""):
                 word += s_letter
                 #print("letter added")
                 break
-    print(word)
+    return word
