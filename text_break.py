@@ -82,6 +82,19 @@ class text_break(object):
 
         return words
 
+    def __word_length_perc(self, w_lengths):
+        total = 0
+        
+        for key in w_lengths.keys():
+            total += w_lengths[key]
+
+        for key in w_lengths.keys():
+            w_lengths[key] = w_lengths[key]/total
+
+        return w_lengths
+
+            
+
     def run_word_len(self): #counts amount of word length n and adds it to n's value in self.word_length
         words = self.__word_break()
 
@@ -91,6 +104,8 @@ class text_break(object):
 
             elif len(word) > 0:
                 self.word_length[len(word)] = 1
+
+        self.word_length = self.__word_length_perc(self.word_length)
 
     def run(self):
 
