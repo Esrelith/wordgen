@@ -1,15 +1,14 @@
 from text_break import text_break
 import random
 
-letters = text_break("shakespeare.txt", "qwertyuiopasdfghjklzxcvbnm ")
+letters = text_break("words.txt", "qwertyuiopasdfghjklzxcvbnm ")
 letters.run()
 l_freq = letters.get_letter_freq()
-print("analysis done")
+print("ANALYSIS DONE\n")
 
-def gen(word = ""):
+def gen(word = "", word_length = 8):
     
     word = word.lower()
-    print(word)
     
     if word == "": #checks if user gave starting letter(s)
         
@@ -23,7 +22,8 @@ def gen(word = ""):
                 word += s_letter
                 break
 
-    while word[-1] != " ": #while the word hasn't ended
+    while word[-1] != " " and len(word) < word_length: #while the word hasn't ended
+    #while len(word) < 4:
         p = random.random() 
         cumulative_p = 0
         
@@ -35,3 +35,6 @@ def gen(word = ""):
                 break
             
     return word
+
+for i in range(32):
+	print(gen("g", 4))
