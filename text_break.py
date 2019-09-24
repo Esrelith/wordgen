@@ -1,4 +1,5 @@
 import random
+import time
 
 class text_break(object):
 
@@ -44,6 +45,9 @@ class text_break(object):
         return chars
 
     def __next_letter(self, contents, allowed_chars, chars): #add the count of letter y following letter x to letter x's dictionary
+        #start = time.time()
+        '''
+        #this is the old, very slow code, running an order of magnitude slower
         for key in chars.keys():
             for i in range(len(contents) - 1):
                 if contents[i + 1] in allowed_chars and contents[i] == key:
@@ -52,7 +56,21 @@ class text_break(object):
 
                     else:
                         chars[key][contents[i + 1]] = 1
+        print(time.time() - start)
+        return chars
+        '''
+        for i in range(len(contents) - 1):
+            try:
+                if contents[i + 1] in chars[contents[i]] and contents[i + 1] in allowed_chars:
+                    chars[contents[i]][contents[i + 1]] += 1
 
+                else:
+                    chars[contents[i]][contents[i + 1]] = 1
+            except KeyError:
+                #print("key DNE")
+                pass
+        
+        #print(time.time() - start)
         return chars
 
     def __letter_percentages(self, chars): #changes letter y's count to a percentage of the total
